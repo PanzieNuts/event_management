@@ -20,8 +20,8 @@ export const useAppStore = defineStore('app', {
 
   }),
   actions: {
-    login(username: string, email: string) {
-      const user = this.userAccount.find((u) => u.username === username && u.email === email)
+    login(username: string, password: string) {
+      const user = this.userAccount.find((u) => u.username === username && u.password === password)
       if (user) {
         this.currentUser = user
         return true

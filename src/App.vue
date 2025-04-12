@@ -25,7 +25,7 @@
       </v-main>
     </v-layout>
 
-    <v-main v-else>
+    <v-main v-else >
       <router-view />
     </v-main>
   </v-app>
@@ -43,3 +43,7 @@ const logoutUser = () => {
   router.push('/login')
 }
 </script>
+
+<style scoped>
+
+</style>

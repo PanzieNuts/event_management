@@ -1,6 +1,6 @@
 <template>
-  <v-container class="fill-height d-flex justify-center align-center">
-    <v-card class="pa-6" max-width="500px">
+  <v-container class=" fill-height d-flex justify-center align-center">
+    <v-card class="pa-6" width="500px">
       <v-card-title class="text-h5 text-center">Login</v-card-title>
 
       <v-card-text>
@@ -12,9 +12,10 @@
             required
           />
           <v-text-field
-            v-model="email"
-            label="Email"
-            prepend-icon="mdi-email"
+            v-model="password"
+            label="Password"
+            prepend-icon="mdi-lock"
+            append-inner-icon="mdi-eye"
             required
           />
           <v-btn type="submit" block color="#FF9149" class="mt-4">Login</v-btn>
@@ -33,15 +34,16 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAppStore } from '../stores/useAppStore'
 
+
 const router = useRouter()
 const store = useAppStore()
 
 const username = ref('')
-const email = ref('')
+const password = ref('')
 const error = ref('')
 
 const handleLogin = () => {
-  const success = store.login(username.value, email.value)
+  const success = store.login(username.value, password.value)
   if (success) {
     error.value = ''
     router.push('/event')
@@ -55,4 +57,5 @@ const handleLogin = () => {
 .fill-height {
   min-height: 100vh;
 }
+
 </style>
