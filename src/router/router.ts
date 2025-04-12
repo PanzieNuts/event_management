@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import event from '@/views/EventHome.vue'
+import event from '../views/EventHome.vue'
 import login from '../views/login.vue'
 import { useAppStore } from '../stores/useAppStore'
 

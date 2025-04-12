@@ -1,5 +1,5 @@
 <template>
-  <h1>sss</h1>
+    <v-btn color="primary">Add Event</v-btn>
 </template>
 
 <script setup lang="ts">
