@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import event from '@/views/EventHome.vue'
-import login from '@/views/login.vue'
+import login from '../views/login.vue'
+import { useAppStore } from '../stores/useAppStore'
 
 const routes = [
   {
@@ -13,17 +14,27 @@ const routes = [
     name: 'event',
     component: event, 
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   component: AboutView, 
-  // },
+  
  
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+})
+
+router.beforeEach((to, from, next) => {
+  const store = useAppStore()
+
+  const isLoggedIn = store.currentUser !== null
+
+  if (to.path !== '/login' && !isLoggedIn) {
+    next('/login')
+  } else if (to.path === '/login' && isLoggedIn) {
+    next('/event')
+  } else {
+    next()
+  }
 })
 
 export default router
