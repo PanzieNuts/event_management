@@ -48,7 +48,7 @@ const handleLogin = () => {
     error.value = ''
     router.push('/event')
   } else {
-    error.value = 'Invalid username or email. Please try again.'
+    error.value = 'Invalid credentials. Please try again.'
   }
 }
 </script>
